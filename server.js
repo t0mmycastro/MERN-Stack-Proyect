@@ -4,7 +4,9 @@ const path = require('path')
 const PORT = process.env.PORT || 3500
 // Asignamos el puerto
 
-app.use('/', express.static(path.join(__dirname, '/public')))
+app.use(express.json())
+
+app.use('/', express.static(path.join(__dirname, 'public')))
 // Asiganmos la carpeta principal
 
 app.use('/', require('./routes/root'))
