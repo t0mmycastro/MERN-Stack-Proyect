@@ -1,3 +1,5 @@
+//dotenv es para establecer variables de enntorno
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const path = require('path')
@@ -6,8 +8,13 @@ const errorHandler = require('./middleware/errorHandler')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const corsOptions = require('./config/corsOptions')
+const connectDB = require('./config/dbConn')
+const { logEvents } = require('./middleware/logger')
+const mongoose = require('mongoose')
 const PORT = process.env.PORT || 3500
 // Asignamos el puerto
+
+connectDB()
 
 app.use(logger)
 
@@ -38,4 +45,12 @@ app.all('*', (req, res) => {
 
 app.use(errorHandler)
 
-app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`))
+mongoose.connection.once('open', () => {
+    console.log('Conectado a la base de datos MongoDB')
+    app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`))
+})
+
+mongoose.connection.on('error', err => {
+    console.log(err)
+    logEvents(`${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`, 'mongoErrLog.log')
+})
