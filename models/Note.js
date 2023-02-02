@@ -19,7 +19,7 @@ const noteSchema = new mongoose.Schema(
     },
     completed: {
         type: Boolean,
-        default: fañse
+        default: true
     }
 },
 {

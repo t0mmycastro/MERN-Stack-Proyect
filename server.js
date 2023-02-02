@@ -29,7 +29,10 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 // Asiganmos la carpeta principal
 
 app.use('/', require('./routes/root'))
-// Ruta principañ
+// Ruta principal
+
+app.use('/users', require('./routes/userRoutes'))
+app.use('/notes', require('./routes/noteRoutes'))
 
 // Si un request no existe, lo enviamos a la pagina 404.html error
 app.all('*', (req, res) => {
