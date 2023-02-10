@@ -23,7 +23,6 @@ export const usersApiSlice = apiSlice.injectEndpoints({
             validateStatus: (response, result) => {
                 return response.status === 200 && !result.isError
             },
-            keepUnusedDataFor: 5,
             transformResponse: responseData => {
                 // Obtenemos la respuesta de la consulta
                 const loadedUsers = responseData.map(user => {
@@ -93,7 +92,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
 export const { useGetUsersQuery, useAddNewUserMutation, useUpdateUserMutation, useDeleteUserMutation } = usersApiSlice
 // Con estos hooks podremos utilizar la data en las vistas de los componentes
 
-// Acá estamos seleccionado el resultado del endoint, estamos seleccioando
+// Acá estamos seleccionado el resultado del endpoint, estamos seleccioando
 // todos los usuarios que trajimos con
 export const selectUsersResult = usersApiSlice.endpoints.getUsers.select()
 

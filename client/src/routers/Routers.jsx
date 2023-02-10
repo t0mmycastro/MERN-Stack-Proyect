@@ -11,6 +11,8 @@ import EditUser from '../pages/users/EditUser'
 import NewUserForm from '../pages/users/NewUserForm'
 import EditNote from '../pages/notes/EditNote'
 import NewNote from '../pages/notes/NewNote'
+import Prefetch from '../pages/auth/Prefetch'
+
 
 export const Routers = () => {
   return (
@@ -19,6 +21,7 @@ export const Routers = () => {
           <Route index element={<Home />} />
           <Route path='login' element={<Login />} />
 
+          <Route element={<Prefetch />}>
           <Route path='dash' element={<DashLayout />}>
             <Route index element={<Welcome />} />
 
@@ -38,6 +41,7 @@ export const Routers = () => {
               <Route path='new' element={<NewUserForm />} />
             </Route>
           </Route> {/* termina el dash */}
+          </Route>
         </Route>
     </Routes>
   )

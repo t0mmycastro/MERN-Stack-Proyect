@@ -25,7 +25,6 @@ export const notesApiSlice = apiSlice.injectEndpoints({
             validateStatus: (response, result) => {
                 return response.status === 200 && !result.isError
             },
-            keepUnusedDataFor: 5,
             transformResponse: responseData => {
                 // Obtenemos la respuesta de la consulta
                 const loadedNotes = responseData.map(note => {
@@ -47,44 +46,44 @@ export const notesApiSlice = apiSlice.injectEndpoints({
                 } else return [{ type: 'note', id: 'LIST' }]
             }
         }),
-        addNewUser: builder.mutation({
-            query: initialUserData => ({
-                url: '/users',
+        addNewNote: builder.mutation({
+            query: InitialNote => ({
+                url: '/notes',
                 method: 'POST',
                 body: {
-                    ...initialUserData,
+                    ...InitialNote,
                 }
             }),
             invalidatesTags: [
-                { type: 'User', id: "LIST" }
+                { type: 'Note', id: "LIST" }
             ]
         }),
-        updateUser: builder.mutation({
-            query: initialUserData => ({
-                url: '/users',
+        updateNote: builder.mutation({
+            query: InitialNote => ({
+                url: '/notes',
                 method: 'PATCH',
                 body: {
-                    ...initialUserData,
+                    ...InitialNote,
                 }
             }),
             invalidatesTags: (result, error, arg) => [
-                { type: 'User', id: arg.id }
+                { type: 'Note', id: arg.id }
             ]
         }),
-        deleteUser: builder.mutation({
+        deleteNote: builder.mutation({
             query: ({ id }) => ({
-                url: `/users`,
+                url: `/notes`,
                 method: 'DELETE',
                 body: { id }
             }),
             invalidatesTags: (result, error, arg) => [
-                { type: 'User', id: arg.id }
+                { type: 'Note', id: arg.id }
             ]
         }),
     }),
 })
 
-export const { useGetNotesQuery, useAddNewUserMutation, useUpdateUserMutation, useDeleteUserMutation } = notesApiSlice
+export const { useGetNotesQuery, useAddNewNoteMutation, useUpdateNoteMutation, useDeleteNoteMutation } = notesApiSlice
 
 // Acá estamos seleccionado el resultado del endoint, estamos seleccioando
 // todos los usuarios que trajimos con
