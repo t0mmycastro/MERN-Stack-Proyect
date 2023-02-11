@@ -1,0 +1,13 @@
+Diferencia entre autenticacion y autorización
+Autenticacion: se refiere al proceso de verificar quien  es alguien
+Autorizacion: es e, proceso de verificar a que recursos tiene acceso un usuarios
+
+Luego de iniciar sesion nuestros usuarios en la web, recibran tokens JWT,
+esto significa que si el usuario una vez autenticado tiene una tokens
+Esto sirve para que luego puedan acceder a otros endpoints de la APi 
+
+
+Como crear secrets keys de token:
+- ponemos node en consola
+- ponemos el codigo: require('crypto').randomBytes(64).toString('hex')
+ y nos dará claves cripteadas
