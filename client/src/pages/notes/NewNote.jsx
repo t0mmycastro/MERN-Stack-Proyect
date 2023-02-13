@@ -10,7 +10,10 @@ const NewNote = () => {
 
     const users = useSelector(selectAllUsers)
 
-    const content = users ? <NewNoteForm users={users} /> : <p>Loading...</p>
+    // necesitamos saber que usuarios existen para apoder asignar una nueva nota al usuario
+    if (!users?.length) return <p>Actualmente no se encuentra disponible esta página</p>
+
+    const content = <NewNoteForm users={users} /> 
 
     return content
     

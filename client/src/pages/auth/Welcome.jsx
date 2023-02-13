@@ -10,15 +10,15 @@ const Welcome = () => {
 
             <p>{today}</p>
 
-            <h1>Welcome!</h1>
+            <h1>Bienvenido!</h1>
 
-            <p><Link to="/dash/notes">View techNotes</Link></p>
+            <p><Link to="/dash/notes">Ver las notas</Link></p>
 
-            <p><Link to="/dash/notes/new">Add new techNotes</Link></p>
+            <p><Link to="/dash/notes/new">Añadir nuevas notas</Link></p>
 
-            <p><Link to="/dash/users">View User Settings</Link></p>
+            <p><Link to="/dash/users">Ver usuarios y configuracion</Link></p>
 
-            <p><Link to="/dash/users/new">Add new User</Link></p>
+            <p><Link to="/dash/users/new">Añadir nuevo usuario</Link></p>
 
         </section>
     )

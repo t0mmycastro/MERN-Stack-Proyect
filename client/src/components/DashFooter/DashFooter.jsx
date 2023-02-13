@@ -17,8 +17,8 @@ const DashFooter = () => {
 
   return (
     <footer className="dash-footer">
-        <p>Current User:</p>
-        <p>Status:</p>
+        <p>Usuario: </p>
+        <p>Estado:</p>
         <button onClick={onGoHomeClicked} className='dash-footer__button icon-button' ><FontAwesomeIcon icon={faHouse} /></button>
     </footer>
   )

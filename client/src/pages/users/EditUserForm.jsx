@@ -114,7 +114,7 @@ const EditUserForm = ({user}) => {
 
         <form className="form" onSubmit={e => e.preventDefault()}>
             <div className="form__title-row">
-                <h2>Edit User</h2>
+                <h2>Editar usuario</h2>
             <div className="form__action-buttons">
                 <button
                     className="icon-button"
@@ -134,7 +134,7 @@ const EditUserForm = ({user}) => {
             </div>
         </div>
         <label className="form__label" htmlFor="username">
-            Username: <span className="nowrap">[3-20 letters]</span></label>
+            Usuario: <span className="nowrap">[3-20 letras]</span></label>
         <input
             className={`form__input ${validUserClass}`}
             id="username"
@@ -146,7 +146,7 @@ const EditUserForm = ({user}) => {
         />
 
         <label className="form__label" htmlFor="password">
-            Password: <span className="nowrap">[empty = no change]</span> <span className="nowrap">[4-12 chars incl. !@#$%]</span></label>
+            Contraseña: <span className="nowrap">[Vacío = no cambiado]</span> <span className="nowrap">[4-12 caracteres incluido. !@#$%]</span></label>
         <input
             className={`form__input ${validPwdClass}`}
             id="password"
@@ -157,7 +157,7 @@ const EditUserForm = ({user}) => {
         />
 
         <label className="form__label form__checkbox-container" htmlFor="user-active">
-            ACTIVE:
+            ACTIVO:
         <input
             className="form__checkbox"
             id="user-active"
@@ -169,7 +169,7 @@ const EditUserForm = ({user}) => {
         </label>
 
         <label className="form__label" htmlFor="roles">
-            ASSIGNED ROLES:</label>
+            ROLES ASIGNADOS:</label>
         <select
             id="roles"
             name="roles"

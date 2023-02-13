@@ -11,3 +11,6 @@ Como crear secrets keys de token:
 - ponemos node en consola
 - ponemos el codigo: require('crypto').randomBytes(64).toString('hex')
  y nos dará claves cripteadas
+
+crear middleware que verificara un token valido cada vez que hagamos una solicitud
+a un punto final protegido

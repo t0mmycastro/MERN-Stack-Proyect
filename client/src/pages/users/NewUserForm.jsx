@@ -103,7 +103,7 @@ const NewUserForm = () => {
 
       <form className="form" onSubmit={onSaveUserClicked}>
         <div className="form__title-row">
-          <h2>New User</h2>
+          <h2>Crear nuevo usuario</h2>
           <div className="form__action-buttons">
             <button
               className="icon-button"
@@ -116,7 +116,7 @@ const NewUserForm = () => {
           </div>
         </div>
       <label className="form__label" htmlFor="username">
-        Username: <span className="nowrap">[3-20 letters]</span></label>
+        Usuario: <span className="nowrap">[3-20 letras]</span></label>
       <input
         className={`form__input ${validUserClass}`}
         id="username"
@@ -128,7 +128,7 @@ const NewUserForm = () => {
       />
 
       <label className="form__label" htmlFor="password">
-        Password: <span className="nowrap">[4-12 chars incl. !@#$%]</span></label>
+        Contraseña: <span className="nowrap">[4-12 caracteres, incluido !@#$%]</span></label>
       <input
         className={`form__input ${validPwdClass}`}
         id="password"
@@ -139,7 +139,7 @@ const NewUserForm = () => {
       />
 
       <label className="form__label" htmlFor="roles">
-        ASSIGNED ROLES:</label>
+        ROLES ASIGNADOS:</label>
       <select
         id="roles"
         name="roles"
