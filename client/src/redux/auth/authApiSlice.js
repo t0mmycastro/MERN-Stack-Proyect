@@ -1,5 +1,5 @@
 import { apiSlice } from "../api/apiSlice";
-import { logOut } from "./authSlice";
+import { logOut, setCredentials } from "./authSlice";
 
 export const authApiSlice = apiSlice.injectEndpoints({
     // definimos los endpoints
@@ -32,7 +32,9 @@ export const authApiSlice = apiSlice.injectEndpoints({
                     // enviaremos el cierre de sesion al estado
                     dispatch(logOut())
                     // reseteará el estado el de abajo y el cache
-                    dispatch(apiSlice.util.resetApiState())
+                    setTimeout(() => {
+                        dispatch(apiSlice.util.resetApiState())
+                    }, 1000);
                 } catch (err) {
                     console.log(err)
                 }
@@ -43,7 +45,17 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 // solicitud para traer una nueva token actualizada y cookie
                 url: '/auth/refresh',
                 method: 'GET',
-            })
+            }),
+            async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+                try {
+                    const { data } = await queryFulfilled
+                    console.log(data)
+                    const { accessToken } = data
+                    dispatch(setCredentials({ accessToken }))
+                } catch (err) {
+                    console.log(err)
+                }
+            }
         })
     })
 })

@@ -49,6 +49,7 @@ const login = asyncHandler(async (req, res) => {
     const accessToken = jwt.sign(
         // objeto que tiene informacion del usuario
         {
+            // userInfo lo usaremos para desetructurar en el frontend
             "UserInfo": {
                 // dentro del objeto tenemos informacion del usuario
                 // por lo que esta informacion se está agregando al token jwt de accceso

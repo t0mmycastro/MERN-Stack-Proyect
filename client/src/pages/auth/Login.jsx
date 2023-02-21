@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 
 import { setCredentials } from '../../redux/auth/authSlice'
 import { useLoginMutation } from '../../redux/auth/authApiSlice'
+import usePersist from '../../hooks/usePersist'
 
 const Login = () => {
 
@@ -14,6 +15,7 @@ const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errMsg, setErrMsg] = useState('')
+  const [persist, setPersist] = usePersist()
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -63,6 +65,8 @@ const Login = () => {
 
   const handleUserInput = (e) => setUsername(e.target.value)
   const handlePwdInput = (e) => setPassword(e.target.value)
+  const handleToggle = () => setPersist(prev => !prev)
+  //acá lo que haremos es usar setPersist y tomar el valor anterior y configurarlo en lo contrario porque solo será una casilla de verificacion
 
   const errClass = errMsg ? "errmsg" : "offscreen"
 
@@ -100,6 +104,10 @@ const Login = () => {
                         required
                     />
                     <button className="form__submit-button">Iniciar sesion</button>
+
+                    <label htmlFor='persist' className='form__persist'>
+                      <input type="checkbox" className='form__checkbox' id='persist' onChange={handleToggle} checked={persist} />
+                    </label>
                 </form>
             </main>
             <footer>

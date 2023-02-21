@@ -5,7 +5,7 @@ import User from './User'
 const UsersList = () => {
 
   // Traeremos users, y varios tipos de estados como isLoading y manejaremos el rror
-  const { data: users, isLoading, isSuccess, isError, error } = useGetUsersQuery(undefined, {
+  const { data: users, isLoading, isSuccess, isError, error } = useGetUsersQuery('usersList', {
     pollingInterval: 60000, // 60 segundos
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true // esto es para que los datos siempre se esten refrescando, se hace con el Listener
